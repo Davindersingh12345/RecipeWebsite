@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Cuisines Recipes</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #f0f8ff;
+    }
+    nav {
+      height: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgb(187, 207, 244);
+      padding: 0 20px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    nav .left {
+      font-size: 2rem;
+      font-weight: bold;
+      color: brown;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: black;
+      font-weight: 600;
+    }
+    nav ul li a:hover {
+      color: crimson;
+    }
+    .h {
+      text-align: center;
+      margin-top: 120px;
+      font-size: 2.5rem;
+      font-style: italic;
+      background-color: #e0f7fa;
+      padding: 20px 0;
+    }
+    .work {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 30px 0;
+      background-color: #e0f7fa;
+    }
+    .r {
+      width: 260px;
+      background-color: #fff0f5;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: 0.3s;
+      text-align: center;
+    }
+    .r:hover {
+      transform: scale(1.05);
+    }
+    .r img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .r h1 {
+      font-size: 1.5rem;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="left">FOOD-HUNT</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Cuisines</a></li>
+        <li><a href="#">My Recipes</a></li>
+        <li><a href="signup.html">Sign up</a></li>
+        <li><a href="login.html">Log in</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="h">Indian Recipes</h1>
+    <div class="work">
+      <div class="r"><img src="butter-chicken.jpg" alt="Butter Chicken"><h1>Butter Chicken</h1></div>
+      <div class="r"><img src="palak-paneer.jpg" alt="Palak Paneer"><h1>Palak Paneer</h1></div>
+      <div class="r"><img src="biryani.jpg" alt="Biryani"><h1>Biryani</h1></div>
+      <div class="r"><img src="masala-dosa.jpg" alt="Masala Dosa"><h1>Masala Dosa</h1></div>
+    </div>
+
+    <h1 class="h">Chinese Recipes</h1>
+    <div class="work">
+      <div class="r"><img src="kung-pao-chicken.jpg" alt="Kung Pao Chicken"><h1>Kung Pao Chicken</h1></div>
+      <div class="r"><img src="fried-rice.jpg" alt="Fried Rice"><h1>Fried Rice</h1></div>
+      <div class="r"><img src="manchurian.jpg" alt="Manchurian"><h1>Veg Manchurian</h1></div>
+      <div class="r"><img src="spring-rolls.jpg" alt="Spring Rolls"><h1>Spring Rolls</h1></div>
+    </div>
+
+    <h1 class="h">Mexican Recipes</h1>
+    <div class="work">
+      <div class="r"><img src="tacos.jpg" alt="Tacos"><h1>Tacos</h1></div>
+      <div class="r"><img src="burrito.jpg" alt="Burrito"><h1>Burrito</h1></div>
+      <div class="r"><img src="quesadilla.jpg" alt="Quesadilla"><h1>Quesadilla</h1></div>
+      <div class="r"><img src="nachos.jpg" alt="Nachos"><h1>Nachos</h1></div>
+    </div>
+
+    <h1 class="h">Italian Recipes</h1>
+    <div class="work">
+      <div class="r"><img src="pizza.jpg" alt="Pizza"><h1>Pizza</h1></div>
+      <div class="r"><img src="pasta.jpg" alt="Pasta"><h1>Pasta</h1></div>
+      <div class="r"><img src="risotto.jpg" alt="Risotto"><h1>Risotto</h1></div>
+      <div class="r"><img src="lasagna.jpg" alt="Lasagna"><h1>Lasagna</h1></div>
+    </div>
+  </main>
+</body>
+</html>

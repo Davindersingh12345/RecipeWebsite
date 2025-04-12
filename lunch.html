@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lunch Recipes</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #e3f2fd, #bbdefb);
+    }
+    header {
+      background-color: #1976d2;
+      color: white;
+      padding: 25px;
+      text-align: center;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    #searchBar {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      width: 60%;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .recipes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 50px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .recipe {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      position: relative;
+    }
+    .recipe:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .recipe:hover::after {
+      content: '\1F50D';
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      animation: bounce 0.6s ease;
+    }
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
+    .recipe img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .recipe h2 {
+      margin: 15px;
+      color: #1565c0;
+      font-size: 1.4rem;
+    }
+    .recipe button {
+      margin: 0 15px 15px;
+      padding: 8px 15px;
+      border: none;
+      background-color: #1976d2;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .recipe button:hover {
+      background-color: #1565c0;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+    }
+    .close {
+      color: #aaa;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: black;
+    }
+    .modal h3 {
+      color: #1976d2;
+    }
+    .modal ul, .modal ol {
+      margin-left: 20px;
+    }
+    .modal p {
+      margin: 10px 0;
+      font-weight: 500;
+    }
+    .modal button {
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    .modal button:hover {
+      background-color: #1565c0;
+    }
+    .link-to-my-recipes {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .link-to-my-recipes a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #1976d2;
+    }
+  </style>
+</head>
+<body>
+  <header>Explore Lunch Recipes</header>
+  <div class="link-to-my-recipes">
+    <a href="my-recipes.html">Go to My Recipes</a>
+  </div>
+  <input type="text" id="searchBar" placeholder="Search for a recipe..." onkeyup="filterRecipes()">
+  <div class="recipes" id="recipeContainer"></div>
+
+  <div id="recipeModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="recipeTitle"></h2>
+      <p><strong>Prep Time:</strong> <span id="prepTime"></span></p>
+      <p><strong>Calories:</strong> <span id="calories"></span></p>
+      <h3>Ingredients:</h3>
+      <ul id="ingredientsList"></ul>
+      <h3>Steps:</h3>
+      <ol id="stepsList"></ol>
+      <button onclick="window.print()">Print Recipe</button>
+    </div>
+  </div>
+
+  <script>
+    const lunchRecipes = [
+      // Vegetarian Recipes
+      {
+        title: 'Paneer Tikka',
+        image: './Paneer-Tikka.webp',
+        ingredients: ['Paneer', 'Yogurt', 'Spices', 'Capsicum', 'Onion'],
+        steps: ['Marinate paneer and veggies', 'Skewer and grill or bake', 'Serve with chutney'],
+        prepTime: '25 mins',
+        calories: '270 kcal'
+      },
+      {
+        title: 'Hyderabadi Biryani',
+        image: './biriyani.jpg',
+        ingredients: ['Rice', 'Chicken/Mutton', 'Yogurt', 'Spices', 'Onions'],
+        steps: ['Marinate meat', 'Cook partially rice', 'Layer rice and meat', 'Cook on low heat'],
+        prepTime: '1 hr',
+        calories: '420 kcal'
+      },
+      {
+        title: 'Vegetarian Wrap',
+        image: './Vegetarian Wrap.jpg',
+        ingredients: ['Tortilla', 'Lettuce', 'Tomatoes', 'Cucumber', 'Cheese'],
+        steps: ['Assemble the ingredients on the tortilla', 'Wrap and serve'],
+        prepTime: '10 mins',
+        calories: '350 kcal'
+      },
+      {
+        title: 'Lentil Soup',
+        image: './Lentil Soup.jpg',
+        ingredients: ['Lentils', 'Carrots', 'Onion', 'Garlic', 'Tomatoes'],
+        steps: ['Boil lentils with vegetables', 'Simmer until soft', 'Serve with bread'],
+        prepTime: '50 mins',
+        calories: '400 kcal'
+      },
+      
+      {
+        title: 'Rajma Chawal',
+        image: './Rajma Chawal.webp',
+        ingredients: ['Kidney beans', 'Rice', 'Tomatoes', 'Onions', 'Spices'],
+        steps: ['Soak and cook rajma', 'Prepare tomato-onion gravy', 'Serve hot with rice'],
+        prepTime: '45 mins',
+        calories: '330 kcal'
+      },
+      {
+        title: 'Chole Bhature',
+        image: './Chole Bhature.jpg',
+        ingredients: ['Chickpeas', 'Flour', 'Yogurt', 'Tomatoes', 'Spices'],
+        steps: ['Soak and boil chickpeas', 'Prepare spicy tomato gravy', 'Knead dough and make bhature', 'Serve hot'],
+        prepTime: '50 mins',
+        calories: '500 kcal'
+      },
+    ];
+
+    function renderRecipes(list = lunchRecipes) {
+      const container = document.getElementById('recipeContainer');
+      container.innerHTML = '';
+      list.forEach(recipe => {
+        const card = document.createElement('div');
+        card.className = 'recipe';
+        card.onclick = () => openModal(recipe.title, recipe.ingredients, recipe.steps, recipe.prepTime, recipe.calories);
+        card.innerHTML = `
+          <img src="${recipe.image}" alt="${recipe.title}">
+          <h2>${recipe.title}</h2>
+          <button onclick="saveRecipe(event, '${recipe.title}')">Save Recipe</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterRecipes() {
+      const input = document.getElementById('searchBar').value.toLowerCase();
+      const filtered = lunchRecipes.filter(r => r.title.toLowerCase().includes(input));
+      renderRecipes(filtered);
+    }
+
+    function saveRecipe(event, title) {
+      event.stopPropagation();
+      const recipeToSave = lunchRecipes.find(r => r.title === title);
+      let savedRecipes = JSON.parse(localStorage.getItem('savedRecipes')) || [];
+
+      if (!savedRecipes.some(r => r.title === title)) {
+        savedRecipes.push(recipeToSave);
+        localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
+        alert(`${title} has been saved to My Recipes!`);
+      } else {
+        alert(`${title} is already saved.`);
+      }
+    }
+
+    function openModal(title, ingredients, steps, prepTime = '30 mins', calories = '400 kcal') {
+      document.getElementById('recipeTitle').textContent = title;
+      document.getElementById('prepTime').textContent = prepTime;
+      document.getElementById('calories').textContent = calories;
+
+      const ingredientsList = document.getElementById('ingredientsList');
+      ingredientsList.innerHTML = '';
+      ingredients.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        ingredientsList.appendChild(li);
+      });
+
+      const stepsList = document.getElementById('stepsList');
+      stepsList.innerHTML = '';
+      steps.forEach(step => {
+        const li = document.createElement('li');
+        li.textContent = step;
+        stepsList.appendChild(li);
+      });
+
+      document.getElementById('recipeModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('recipeModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('recipeModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+
+    renderRecipes();
+  </script>
+</body>
+</html>

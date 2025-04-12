@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Recipes</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #f0f4c3, #dce775);
+    }
+    header {
+      background-color: #827717;
+      color: white;
+      padding: 25px;
+      text-align: center;
+      font-size: 2.5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .link-back {
+      text-align: center;
+      margin: 15px;
+    }
+    .link-back a {
+      text-decoration: none;
+      color: #827717;
+      font-weight: bold;
+    }
+    .recipes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .recipe {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      position: relative;
+    }
+    .recipe:hover {
+      transform: translateY(-5px);
+    }
+    .recipe img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .recipe h2 {
+      margin: 15px;
+      color: #827717;
+      font-size: 1.4rem;
+    }
+    .recipe button {
+      margin: 0 15px 15px;
+      padding: 8px 15px;
+      border: none;
+      background-color: #827717;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .recipe button:hover {
+      background-color: #5f5f17;
+    }
+    .no-recipes {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-top: 50px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>My Saved Recipes</header>
+  
+  <div class="recipes" id="savedRecipeContainer"></div>
+  <p class="no-recipes" id="noRecipesMessage">No recipes saved yet. Go explore and add some!</p>
+
+  <script>
+    function renderSavedRecipes() {
+      const savedRecipes = JSON.parse(localStorage.getItem('savedRecipes')) || [];
+      const container = document.getElementById('savedRecipeContainer');
+      const noRecipesMsg = document.getElementById('noRecipesMessage');
+      container.innerHTML = '';
+
+      if (savedRecipes.length === 0) {
+        noRecipesMsg.style.display = 'block';
+        return;
+      }
+
+      noRecipesMsg.style.display = 'none';
+
+      savedRecipes.forEach(recipe => {
+        const card = document.createElement('div');
+        card.className = 'recipe';
+        card.innerHTML = `
+          <img src="${recipe.image}" alt="${recipe.title}">
+          <h2>${recipe.title}</h2>
+          <button onclick="removeRecipe('${recipe.title}')">Remove Recipe</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function removeRecipe(title) {
+      let savedRecipes = JSON.parse(localStorage.getItem('savedRecipes')) || [];
+      savedRecipes = savedRecipes.filter(recipe => recipe.title !== title);
+      localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
+      renderSavedRecipes();
+    }
+
+    renderSavedRecipes();
+  </script>
+</body>
+</html>

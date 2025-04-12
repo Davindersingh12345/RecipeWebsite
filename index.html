@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&display=swap');
+        
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #a8e6cf, #dcedc1);
+            margin: auto;
+            width: 100%;
+        }
+
+        /* Navigation Bar */
+        nav {
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgb(187, 207, 244);
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 15px 15px;
+        }
+
+        nav .left {
+            color: brown;
+            font-size: 2rem;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style-type: none;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+            
+            
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: crimson;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Hero Section */
+        .recipe {
+            background-image: url("./Cover.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .recipe::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        .recipe .rec {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        .recipe .f {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            font-size: 2rem;
+        }
+
+        .search {
+            height: 40px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        button {
+            height: 40px;
+            width: 50px;
+            border: none;
+            background-color: crimson;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        button i {
+            font-size: 1rem;
+        }
+
+        /* Cuisines Section */
+        .head {
+            background-color: aliceblue;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 3rem;
+            font-style: italic;
+        }
+
+        .alt {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            background-color: aliceblue;
+            padding: 20px 0;
+        }
+
+        .s {
+            height: 300px;
+            width: 250px;
+            background-color: rgba(239, 220, 198, 0.9);
+            border-radius: 15px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .s:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+            border: 2px solid rgb(225, 0, 255);
+        }
+
+        .s img {
+            height: 210px;
+            width: 100%;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .s .d {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        /* Meals Section */
+
+        .h {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 3rem;
+            font-style: italic;
+            background-color: rgb(221, 245, 245);
+        }
+        .work {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            background-color: rgb(221, 245, 245);
+            padding: 40px 0;
+        }
+
+        .r {
+            height: 380px;
+            width: 300px;
+            background-color: rgba(255, 220, 249, 0.9);
+            border-radius: 15px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .r:hover {
+            transform: scale(1.05);
+        }
+
+        .r img {
+            height: 280px;
+            width: 100%;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .r h1 {
+            font-size: 1.8rem;
+            margin: 10px 0;
+        }
+
+        /* Contact Section */
+        .last {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            background-color: rgb(183, 206, 238);
+            padding: 40px 0;
+        }
+
+        .la {
+            text-align: center;
+        }
+
+        .la img {
+            height: 80px;
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        .la h1 {
+            font-size: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            color: black;
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: crimson;
+            transform: scale(1.2);
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .alt,
+            .work,
+            .last {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .s,
+            .r {
+                width: 90%;
+                margin-bottom: 20px;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .search {
+                width: 80%;
+            }
+        }
+
+   /* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    font-size: 14px;
+    margin-top: 10px;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    font-size: 14px;
+    margin-top: 10px;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+
+    </style>
+    <script src="https://kit.fontawesome.com/c88ac126d3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+                    
+    
+    
+    
+
+
+    <header>
+        <nav>
+            <div class="left">FOOD-HUNT</div>
+            <div class="right">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <div class="dropdown">
+                        <li class="dropbtn"><a href="#">Cuisines</a></li>
+                        <div class="dropdown-content">
+                            <a href="indian.html">Indian</a>
+                            <a href="chinese.html">Chinese</a>
+                            <a href="mexican.html">Mexican</a>
+                            <a href="italy.html">Italian</a>
+                        </div>
+                    </div>
+                    <li><a href="./my-recipes.html">My Recipes</a></li>
+                    <li><a href="https://your-app.clerk.accounts.dev/sign-in">Sign In</a></li>
+                    <li><a href="login.html">Log in</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <div class="recipe">
+            <div class="rec">
+                <p class="f"><em><b>Find your Delicacy</b></em></p>
+                <form action="/search" method="get">
+                    <div class="f">
+                        <input class="search" type="text" placeholder="Search for recipe etc." name="search" aria-label="Search">
+                        <button type="submit"> <i class="fa-solid fa-magnifying-glass fa-bounce"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h1 class="head">Cuisines</h1>
+        <div class="alt">
+            <a href="indian.html" target="_top">
+                <div class="s"><img src="./Indian.jpg" alt="Indian Cuisine">
+                    <p class="d">Indian</p>
+                </div>
+            </a>
+            <a href="chinese.html">
+                <div class="s"><img src="./Chinese.jpg" alt="Chinese Cuisine">
+                    <p class="d">Chinese</p>
+                </div>
+            </a>
+            <a href="mexican.html">
+                <div class="s"><img src="./Mexican.jpg" alt="Mexican Cuisine">
+                    <p class="d">Mexican</p>
+                </div>
+            </a>
+            <a href="italy.html">
+                <div class="s"><img src="./Italian.jpg" alt="Italian Cuisine">
+                    <p class="d">Italian</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section>
+        <h1 class="h">Meals</h1>
+        <div class="work">
+            <a href="./breakfast.html">
+                <div class="r">
+                    <img src="./Breakfast.webp" alt="Breakfast">
+                    <h1>Breakfast</h1>
+                </div>
+            </a>
+            <a href="./lunch.html">
+                <div class="r">
+                    <img src="./lunch.jpg" alt="Lunch">
+                    <h1>Lunch</h1>
+                </div>
+            </a>
+            <a>
+                <div class="r">
+                    <img src="./dinner.jpg" alt="Dinner">
+                    <h1>Dinner</h1>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section>
+        
+        <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </section>
+
+   
+
+   
+
+</body>
+
+</html>
