@@ -22,6 +22,99 @@
             width: 100%;
         }
 
+        /* Responsive Improvements */
+
+    nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0;
+    }
+
+    nav .right {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    nav ul li {
+        margin: 10px 10px;
+    }
+
+    .alt,
+    .work {
+        flex-wrap: wrap;
+    }
+
+    .s,
+    .r {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    /* Hamburger menu (optional upgrade) */
+    .hamburger {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        nav .right ul {
+            display: none;
+            flex-direction: column;
+            background-color: rgb(187, 207, 244);
+            position: absolute;
+            top: 80px;
+            right: 20px;
+            width: 200px;
+            border-radius: 10px;
+            padding: 10px 0;
+        }
+
+        nav .right.active ul {
+            display: flex;
+        }
+
+        .hamburger {
+            display: block;
+        }
+
+        .alt,
+        .work,
+        .last {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .s,
+        .r {
+            width: 80%;
+        }
+
+        .search {
+            width: 90%;
+        }
+
+        .recipe .f {
+            flex-direction: column;
+        }
+
+        .recipe {
+            padding: 0 10px;
+        }
+
+        .social-icons {
+            flex-wrap: wrap;
+        }
+
+        .modal-content {
+            margin: 25% auto;
+            width: 90%;
+        }
+    }
+
+
         /* Navigation Bar */
         nav {
             height: 80px;
