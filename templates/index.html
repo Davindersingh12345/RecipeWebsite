@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="hero">
+        <h1>Welcome to FOOD-HUNT</h1>
+        <p>Unlock the Secrets of Global Cuisine.</p>
+        {% if 'user_id' not in session %}
+            <div class="cta-buttons">
+                <a href="{{ url_for('login') }}" class="btn">Login</a>
+                <a href="{{ url_for('signup') }}" class="btn btn-outline">Sign Up</a>
+            </div>
+        {% endif %}
+    </div>
+    {% endblock %}

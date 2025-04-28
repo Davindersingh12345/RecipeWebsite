@@ -289,7 +289,7 @@
 
         /* Hero Section */
         .recipe {
-            background-image: url("./Cover.jpg");
+            background-image: url("{{ url_for('static', filename='images/Cover.jpg') }}");
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -681,15 +681,14 @@ button:hover {
                     <div class="dropdown">
                         <li class="dropbtn"><a href="#">Cuisines</a></li>
                         <div class="dropdown-content">
-                            <a href="indian.html">Indian</a>
-                            <a href="chinese.html">Chinese</a>
-                            <a href="mexican.html">Mexican</a>
-                            <a href="italy.html">Italian</a>
+                            <a href="{{ url_for('indian') }}">Indian</a>
+                            <a href="{{ url_for('chinese') }}">Chinese</a>
+                            <a href="{{ url_for('mexican') }}">Mexican</a>
+                            <a href="{{ url_for('italy') }}">Italian</a>
                         </div>
                     </div>
-                    <li><a href="./my-recipes.html">My Recipes</a></li>
-                    <li><a href="./signup.html">Sign Up</a></li>
-                    <li><a href="login.html">Log in</a></li>
+                    <li><a href="{{ url_for('recipes') }}">My Recipes</a></li>
+                    <li><a href="{{ url_for('logout') }}">Log out</a></li>
                 </ul>
             </div>
         </nav>
@@ -700,14 +699,13 @@ button:hover {
             <a href="#">Home</a>
             <a href="#">Cuisines ▾</a>
             <div class="sidebar-sub">
-                <a href="indian.html">Indian</a>
-                <a href="chinese.html">Chinese</a>
-                <a href="mexican.html">Mexican</a>
-                <a href="italy.html">Italian</a>
+                <a href="{{ url_for('indian') }}">Indian</a>
+                <a href="{{ url_for('chinese') }}">Chinese</a>
+                <a href="{{ url_for('mexican') }}">Mexican</a>
+                <a href="{{ url_for('italy') }}">Italian</a>
             </div>
-            <a href="./my-recipes.html">My Recipes</a>
-            <a href="./signup.html">Sign Up</a>
-            <a href="login.html">Log in</a>
+            <a href=".{{ url_for('recipes') }}">My Recipes</a>
+            <a href="{{ url_for('logout') }}">Log out</a>
         </div>
         
 
@@ -730,23 +728,23 @@ button:hover {
     <section>
         <h1 class="head">Cuisines</h1>
         <div class="alt">
-            <a href="indian.html" target="_top">
-                <div class="s"><img src="./Indian.jpg" alt="Indian Cuisine">
+            <a href="{{ url_for('indian') }}" target="_top">
+                <div class="s"><img src="{{ url_for('static', filename='images/Indian.jpg') }}" alt="Indian Cuisine">
                     <p class="d">Indian</p>
                 </div>
             </a>
-            <a href="chinese.html">
-                <div class="s"><img src="./Chinese.jpg" alt="Chinese Cuisine">
+            <a href="{{ url_for('chinese') }}">
+                <div class="s"><img src="{{ url_for('static', filename='images/Chinese.jpg') }}" alt="Chinese Cuisine">
                     <p class="d">Chinese</p>
                 </div>
             </a>
-            <a href="mexican.html">
-                <div class="s"><img src="./Mexican.jpg" alt="Mexican Cuisine">
+            <a href="{{ url_for('mexican') }}">
+                <div class="s"><img src="{{ url_for('static', filename='images/Mexican.jpg') }}" alt="Mexican Cuisine">
                     <p class="d">Mexican</p>
                 </div>
             </a>
-            <a href="italy.html">
-                <div class="s"><img src="./Italian.jpg" alt="Italian Cuisine">
+            <a href="{{ url_for('italy') }}">
+                <div class="s"><img src="{{ url_for('static', filename='images/Italian.jpg') }}" alt="Italian Cuisine">
                     <p class="d">Italian</p>
                 </div>
             </a>
@@ -756,21 +754,21 @@ button:hover {
     <section>
         <h1 class="h">Meals</h1>
         <div class="work">
-            <a href="./breakfast.html">
+            <a href="{{ url_for('breakfast') }}">
                 <div class="r">
-                    <img src="./Breakfast.webp" alt="Breakfast">
+                    <img src="{{ url_for('static', filename='images/Breakfast.webp') }}" alt="Breakfast">
                     <h1>Breakfast</h1>
                 </div>
             </a>
-            <a href="./lunch.html">
+            <a href="{{ url_for('lunch') }}">
                 <div class="r">
-                    <img src="./lunch.jpg" alt="Lunch">
+                    <img src="{{ url_for('static', filename='images/lunch.jpg') }}" alt="Lunch">
                     <h1>Lunch</h1>
                 </div>
             </a>
-            <a>
+            <a href="">
                 <div class="r">
-                    <img src="./dinner.jpg" alt="Dinner">
+                    <img src="{{ url_for('static', filename='images/dinner.jpg') }}" alt="Dinner">
                     <h1>Dinner</h1>
                 </div>
             </a>
