@@ -133,5 +133,10 @@ def breakfast():
 def lunch():
     return render_template('lunch.html')
 
+@app.route('/dinner')
+def dinner():
+    return render_template('dinner.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)

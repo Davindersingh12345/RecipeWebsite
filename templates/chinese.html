@@ -35,7 +35,7 @@
 <body>
   <header>Explore Chinese Cuisine</header>
   <div class="link-to-my-recipes">
-    <a href="my-recipes.html">Go to My Recipes</a>
+    <a href="{{ url_for('recipes') }}">Go to My Recipes</a>
   </div>
   <input type="text" id="searchBar" placeholder="Search for a recipe..." onkeyup="filterRecipes()">
   <div class="recipes" id="recipeContainer"></div>
@@ -58,7 +58,7 @@
     const recipes = [
       {
         title: 'Kung Pao Chicken',
-        image: './Kung-Pao-Chicken.webp',
+        image: "{{ url_for('static', filename='images/Kung-Pao-Chicken.webp') }}",
         ingredients: ['Chicken', 'Peanuts', 'Chili peppers', 'Garlic', 'Soy sauce'],
         steps: ['Marinate chicken', 'Stir-fry chilies and garlic', 'Add chicken and sauce', 'Garnish with peanuts'],
         prepTime: '40 mins',
@@ -66,7 +66,7 @@
       },
       {
         title: 'Sweet and Sour Pork',
-        image: './Sweet and Sour Pork.jpg',
+        image: "{{ url_for('static', filename='images/Sweet and Sour Pork.jpg') }}",
         ingredients: ['Pork', 'Pineapple', 'Bell peppers', 'Vinegar', 'Sugar'],
         steps: ['Fry pork cubes', 'Cook sauce with vinegar and sugar', 'Combine with pork and vegetables'],
         prepTime: '35 mins',
@@ -74,7 +74,7 @@
       },
       {
         title: 'Fried Rice',
-        image: './Fried Rice.jpg',
+        image: "{{ url_for('static', filename='images/Fried Rice.jpg') }}",
         ingredients: ['Rice', 'Eggs', 'Vegetables', 'Soy sauce', 'Green onions'],
         steps: ['Scramble eggs', 'Stir-fry veggies', 'Add rice and soy sauce', 'Mix with green onions'],
         prepTime: '30 mins',
@@ -82,7 +82,7 @@
       },
       {
         title: 'Spring Rolls',
-        image: './Spring Rolls.jpg',
+        image: "{{ url_for('static', filename='images/Spring Rolls.jpg') }}",
         ingredients: ['Spring roll wrappers', 'Cabbage', 'Carrots', 'Soy sauce', 'Garlic'],
         steps: ['Prepare filling', 'Wrap in spring roll sheets', 'Deep fry until golden'],
         prepTime: '25 mins',
@@ -90,7 +90,7 @@
       },
       {
         title: 'Beef and Broccoli',
-        image: './Beef and Broccoli.jpg',
+        image: "{{ url_for('static', filename='images/Beef and Broccoli.jpg') }}",
         ingredients: ['Beef', 'Broccoli', 'Oyster sauce', 'Garlic', 'Cornstarch'],
         steps: ['Marinate beef', 'Blanch broccoli', 'Stir-fry with sauce'],
         prepTime: '35 mins',

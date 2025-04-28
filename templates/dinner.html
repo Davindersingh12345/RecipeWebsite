@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Italian Cuisine</title>
+  <title>Dinner Recipes</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(to right, #fff5f5, #ffe6e6);
+      background: linear-gradient(to right, #ffccbc, #ffab91);
     }
     header {
-      background-color: #b71c1c;
+      background-color: #d32f2f;
       color: white;
       padding: 25px;
       text-align: center;
@@ -72,20 +73,20 @@
     }
     .recipe h2 {
       margin: 15px;
-      color: #7f0000;
+      color: #d32f2f;
       font-size: 1.4rem;
     }
     .recipe button {
       margin: 0 15px 15px;
       padding: 8px 15px;
       border: none;
-      background-color: #b71c1c;
+      background-color: #d32f2f;
       color: white;
       border-radius: 5px;
       cursor: pointer;
     }
     .recipe button:hover {
-      background-color: #7f0000;
+      background-color: #b71c1c;
     }
     .modal {
       display: none;
@@ -120,7 +121,7 @@
       color: black;
     }
     .modal h3 {
-      color: #b71c1c;
+      color: #d32f2f;
     }
     .modal ul, .modal ol {
       margin-left: 20px;
@@ -130,7 +131,7 @@
       font-weight: 500;
     }
     .modal button {
-      background-color: #b71c1c;
+      background-color: #d32f2f;
       color: white;
       border: none;
       padding: 10px 20px;
@@ -139,7 +140,7 @@
       margin-top: 15px;
     }
     .modal button:hover {
-      background-color: #7f0000;
+      background-color: #b71c1c;
     }
     .link-to-my-recipes {
       text-align: center;
@@ -148,12 +149,12 @@
     .link-to-my-recipes a {
       text-decoration: none;
       font-weight: bold;
-      color: #b71c1c;
+      color: #d32f2f;
     }
   </style>
 </head>
 <body>
-  <header>Explore Italian Cuisine</header>
+  <header>Explore Dinner Recipes</header>
   <div class="link-to-my-recipes">
     <a href="{{ url_for('recipes') }}">Go to My Recipes</a>
   </div>
@@ -175,90 +176,51 @@
   </div>
 
   <script>
-    const recipes = [
+    const dinnerRecipes = [
+      // Dinner Recipes
       {
-        title: 'Spaghetti Carbonara',
-        image: "{{ url_for('static', filename='images/Spaghetti Carbonara.jpg') }}",
-        ingredients: ['Spaghetti', 'Eggs', 'Pancetta', 'Parmesan cheese', 'Black pepper'],
-        steps: ['Boil pasta', 'Cook pancetta', 'Mix eggs and cheese', 'Combine all with pasta'],
-        prepTime: '30 mins',
-        calories: '400 kcal'
+        title: 'Palak Paneer',
+        image: "{{ url_for('static', filename='images/palak-paneer.jpg') }}",
+        ingredients: ['Spinach', 'Paneer', 'Garlic', 'Onion', 'Spices'],
+        steps: ['Blanch and blend spinach', 'Saute onion and spices', 'Add paneer and spinach puree'],
+        prepTime: '35 mins',
+        calories: '280 kcal'
       },
       {
-        title: 'Margherita Pizza',
-        image: "{{ url_for('static', filename='images/Margherita-Pizza.jpg') }}",
-        ingredients: ['Pizza dough', 'Tomato sauce', 'Mozzarella', 'Basil', 'Olive oil'],
-        steps: ['Prepare dough', 'Spread sauce and toppings', 'Bake in oven'],
-        prepTime: '40 mins',
-        calories: '350 kcal'
-      },
-      {
-        title: 'Lasagna',
-        image: "{{ url_for('static', filename='images/Lasagna.jpg') }}",
-        ingredients: ['Lasagna noodles', 'Ground beef', 'Tomato sauce', 'Ricotta', 'Mozzarella'],
-        steps: ['Cook meat', 'Layer pasta with sauce and cheese', 'Bake in oven'],
-        prepTime: '1 hr',
-        calories: '500 kcal'
-      },
-      {
-        title: 'Risotto alla Milanese',
-        image: "{{ url_for('static', filename='images/Risotto alla Milanese.jpg') }}",
-        ingredients: ['Arborio rice', 'Saffron', 'Onion', 'Butter', 'Parmesan'],
-        steps: ['Saute onions', 'Add rice and broth gradually', 'Stir in saffron and cheese'],
+        title: 'Rajma Chawal',
+        image: "{{ url_for('static', filename='images/Rajma Chawal.webp') }}",
+        ingredients: ['Kidney beans', 'Rice', 'Tomatoes', 'Onions', 'Spices'],
+        steps: ['Soak and cook rajma', 'Prepare tomato-onion gravy', 'Serve hot with rice'],
         prepTime: '45 mins',
-        calories: '380 kcal'
+        calories: '330 kcal'
       },
       {
-        title: 'Tiramisu',
-        image: "{{ url_for('static', filename='images/Tiramisu.jpg') }}",
-        ingredients: ['Ladyfingers', 'Mascarpone', 'Coffee', 'Cocoa powder', 'Eggs'],
-        steps: ['Dip ladyfingers in coffee', 'Layer with mascarpone mixture', 'Chill and dust with cocoa'],
+        title: 'Paneer Tikka',
+        image: "{{ url_for('static', filename='images/Paneer-Tikka.webp') }}",
+        ingredients: ['Paneer', 'Yogurt', 'Spices', 'Capsicum', 'Onion'],
+        steps: ['Marinate paneer and veggies', 'Skewer and grill or bake', 'Serve with chutney'],
         prepTime: '25 mins',
-        calories: '420 kcal'
+        calories: '270 kcal'
       },
       {
-        title: 'Fettuccine Alfredo',
-        image: "{{ url_for('static', filename='images/Fettuccine Alfredo.jpg') }}",
-        ingredients: ['Fettuccine', 'Butter', 'Parmesan', 'Cream', 'Garlic'],
-        steps: ['Cook pasta', 'Prepare creamy garlic sauce', 'Mix with pasta'],
-        prepTime: '30 mins',
-        calories: '390 kcal'
+        title: 'Paneer Butter Masala',
+        image: "{{ url_for('static', filename='images/Paneer Butter Masala.webp') }}",
+        ingredients: ['Paneer', 'Butter', 'Cream', 'Tomatoes', 'Spices'],
+        steps: ['Cook paneer in butter', 'Add tomato puree and spices', 'Simmer with cream', 'Serve with naan or rice'],
+        prepTime: '40 mins',
+        calories: '450 kcal'
       },
       {
-        title: 'Caprese Salad',
-        image: "{{ url_for('static', filename='images/Caprese Salad.jpg') }}",
-        ingredients: ['Tomatoes', 'Mozzarella', 'Basil', 'Olive oil', 'Salt'],
-        steps: ['Slice tomatoes and cheese', 'Arrange and top with basil and oil'],
-        prepTime: '15 mins',
-        calories: '220 kcal'
+        title: 'Chicken Biryani',
+        image: "{{ url_for('static', filename='images/biriyani.jpg') }}",
+        ingredients: ['Rice', 'Chicken', 'Spices', 'Onions', 'Yogurt'],
+        steps: ['Marinate chicken', 'Cook partially rice', 'Layer rice and chicken', 'Cook on low heat'],
+        prepTime: '1 hr',
+        calories: '600 kcal'
       },
-      {
-        title: 'Gnocchi',
-        image: "{{ url_for('static', filename='images/Gnocchi.jpg') }}",
-        ingredients: ['Potatoes', 'Flour', 'Eggs', 'Salt', 'Parmesan'],
-        steps: ['Boil and mash potatoes', 'Form dough', 'Shape gnocchi and boil'],
-        prepTime: '50 mins',
-        calories: '340 kcal'
-      },
-      {
-        title: 'Bruschetta',
-        image: "{{ url_for('static', filename='images/Bruschetta.webp') }}",
-        ingredients: ['Bread', 'Tomatoes', 'Garlic', 'Basil', 'Olive oil'],
-        steps: ['Toast bread', 'Top with tomato mix', 'Drizzle olive oil'],
-        prepTime: '20 mins',
-        calories: '180 kcal'
-      },
-      {
-        title: 'Panna Cotta',
-        image: "{{ url_for('static', filename='images/Panna Cotta.jpg') }}",
-        ingredients: ['Cream', 'Sugar', 'Vanilla', 'Gelatin', 'Berries'],
-        steps: ['Heat cream and vanilla', 'Add gelatin and chill', 'Serve with berries'],
-        prepTime: '25 mins',
-        calories: '300 kcal'
-      }
     ];
 
-    function renderRecipes(list = recipes) {
+    function renderRecipes(list = dinnerRecipes) {
       const container = document.getElementById('recipeContainer');
       container.innerHTML = '';
       list.forEach(recipe => {
@@ -276,13 +238,13 @@
 
     function filterRecipes() {
       const input = document.getElementById('searchBar').value.toLowerCase();
-      const filtered = recipes.filter(r => r.title.toLowerCase().includes(input));
+      const filtered = dinnerRecipes.filter(r => r.title.toLowerCase().includes(input));
       renderRecipes(filtered);
     }
 
     function saveRecipe(event, title) {
       event.stopPropagation();
-      const recipeToSave = recipes.find(r => r.title === title);
+      const recipeToSave = dinnerRecipes.find(r => r.title === title);
       let savedRecipes = JSON.parse(localStorage.getItem('savedRecipes')) || [];
 
       if (!savedRecipes.some(r => r.title === title)) {
@@ -294,7 +256,7 @@
       }
     }
 
-    function openModal(title, ingredients, steps, prepTime = '30 mins', calories = '250 kcal') {
+    function openModal(title, ingredients, steps, prepTime = '30 mins', calories = '400 kcal') {
       document.getElementById('recipeTitle').textContent = title;
       document.getElementById('prepTime').textContent = prepTime;
       document.getElementById('calories').textContent = calories;

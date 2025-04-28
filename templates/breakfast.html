@@ -179,7 +179,7 @@
     const breakfastRecipes = [
       {
         title: 'Pancakes',
-        image: './Pancakes.jpg',
+        image: "{{ url_for('static', filename='images/Pancakes.jpg') }}",
         ingredients: ['Flour', 'Eggs', 'Milk', 'Sugar', 'Baking powder'],
         steps: ['Mix ingredients', 'Cook on a hot griddle', 'Serve with syrup and butter'],
         prepTime: '20 mins',
@@ -187,7 +187,7 @@
       },
       {
         title: 'Scrambled Eggs',
-        image: './Scrambled Eggs.jpg',
+        image: "{{ url_for('static', filename='images/Scrambled Eggs.jpg') }}",
         ingredients: ['Eggs', 'Butter', 'Salt', 'Pepper'],
         steps: ['Whisk eggs', 'Cook in a pan with butter', 'Season with salt and pepper'],
         prepTime: '5 mins',
@@ -195,7 +195,7 @@
       },
       {
         title: 'French Toast',
-        image: './French Toast.jpg',
+        image: "{{ url_for('static', filename='images/French Toast.jpg') }}",
         ingredients: ['Bread', 'Eggs', 'Milk', 'Cinnamon', 'Sugar'],
         steps: ['Dip bread in egg mixture', 'Cook in a pan until golden', 'Serve with syrup'],
         prepTime: '15 mins',
@@ -203,7 +203,7 @@
       },
       {
         title: 'Oatmeal',
-        image: './Oatmeal.webp',
+        image: "{{ url_for('static', filename='images/Oatmeal.webp') }}",
         ingredients: ['Oats', 'Milk', 'Honey', 'Fruit'],
         steps: ['Cook oats in milk', 'Add honey and fruit'],
         prepTime: '10 mins',
@@ -211,7 +211,7 @@
       },
       {
         title: 'Smoothie',
-        image: './Smoothie.jpg',
+        image: "{{ url_for('static', filename='images/Smoothie.jpg') }}",
         ingredients: ['Banana', 'Strawberries', 'Yogurt', 'Honey'],
         steps: ['Blend all ingredients together', 'Serve cold'],
         prepTime: '5 mins',

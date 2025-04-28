@@ -156,7 +156,7 @@
 <body>
   <header>Explore Lunch Recipes</header>
   <div class="link-to-my-recipes">
-    <a href="my-recipes.html">Go to My Recipes</a>
+    <a href="{{ url_for('recipes') }}">Go to My Recipes</a>
   </div>
   <input type="text" id="searchBar" placeholder="Search for a recipe..." onkeyup="filterRecipes()">
   <div class="recipes" id="recipeContainer"></div>
@@ -180,7 +180,7 @@
       // Vegetarian Recipes
       {
         title: 'Paneer Tikka',
-        image: './Paneer-Tikka.webp',
+        image: "{{ url_for('static', filename='images/Paneer-Tikka.webp') }}",
         ingredients: ['Paneer', 'Yogurt', 'Spices', 'Capsicum', 'Onion'],
         steps: ['Marinate paneer and veggies', 'Skewer and grill or bake', 'Serve with chutney'],
         prepTime: '25 mins',
@@ -188,7 +188,7 @@
       },
       {
         title: 'Hyderabadi Biryani',
-        image: './biriyani.jpg',
+        image: "{{ url_for('static', filename='images/biriyani.jpg') }}",
         ingredients: ['Rice', 'Chicken/Mutton', 'Yogurt', 'Spices', 'Onions'],
         steps: ['Marinate meat', 'Cook partially rice', 'Layer rice and meat', 'Cook on low heat'],
         prepTime: '1 hr',
@@ -196,7 +196,7 @@
       },
       {
         title: 'Vegetarian Wrap',
-        image: './Vegetarian Wrap.jpg',
+        image: "{{ url_for('static', filename='images/Vegetarian Wrap.jpg') }}",
         ingredients: ['Tortilla', 'Lettuce', 'Tomatoes', 'Cucumber', 'Cheese'],
         steps: ['Assemble the ingredients on the tortilla', 'Wrap and serve'],
         prepTime: '10 mins',
@@ -204,7 +204,7 @@
       },
       {
         title: 'Lentil Soup',
-        image: './Lentil Soup.jpg',
+        image: "{{ url_for('static', filename='images/Lentil Soup.jpg') }}",
         ingredients: ['Lentils', 'Carrots', 'Onion', 'Garlic', 'Tomatoes'],
         steps: ['Boil lentils with vegetables', 'Simmer until soft', 'Serve with bread'],
         prepTime: '50 mins',
@@ -213,7 +213,7 @@
       
       {
         title: 'Rajma Chawal',
-        image: './Rajma Chawal.webp',
+        image: "{{ url_for('static', filename='images/Rajma Chawal.webp') }}",
         ingredients: ['Kidney beans', 'Rice', 'Tomatoes', 'Onions', 'Spices'],
         steps: ['Soak and cook rajma', 'Prepare tomato-onion gravy', 'Serve hot with rice'],
         prepTime: '45 mins',
@@ -221,7 +221,7 @@
       },
       {
         title: 'Chole Bhature',
-        image: './Chole Bhature.jpg',
+        image: "{{ url_for('static', filename='images/Chole Bhature.jpg') }}",
         ingredients: ['Chickpeas', 'Flour', 'Yogurt', 'Tomatoes', 'Spices'],
         steps: ['Soak and boil chickpeas', 'Prepare spicy tomato gravy', 'Knead dough and make bhature', 'Serve hot'],
         prepTime: '50 mins',

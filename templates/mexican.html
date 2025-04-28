@@ -155,7 +155,7 @@
 <body>
   <header>Explore Mexican Cuisine</header>
   <div class="link-to-my-recipes">
-    <a href="my-recipes.html">Go to My Recipes</a>
+    <a href="{{ url_for('recipes') }}">Go to My Recipes</a>
   </div>
   <input type="text" id="searchBar" placeholder="Search for a recipe..." onkeyup="filterRecipes()">
   <div class="recipes" id="recipeContainer"></div>
@@ -178,7 +178,7 @@
     const recipes = [
       {
         title: 'Tacos Al Pastor',
-        image: './takos-al-pastor.jpg',
+        image: "{{ url_for('static', filename='images/takos-al-pastor.jpg') }}",
         ingredients: ['Pork shoulder', 'Pineapple', 'Corn tortillas', 'Onion', 'Cilantro'],
         steps: ['Marinate pork', 'Grill and slice meat', 'Warm tortillas', 'Assemble with toppings'],
         prepTime: '45 mins',
@@ -186,7 +186,7 @@
       },
       {
         title: 'Chicken Enchiladas',
-        image: './Chicken Enchiladas.jpg',
+        image: "{{ url_for('static', filename='images/Chicken Enchiladas.jpg') }}",
         ingredients: ['Shredded chicken', 'Tortillas', 'Enchilada sauce', 'Cheese', 'Onions'],
         steps: ['Fill tortillas with chicken', 'Cover with sauce and cheese', 'Bake until melted'],
         prepTime: '40 mins',
@@ -194,7 +194,7 @@
       },
       {
         title: 'Guacamole',
-        image: './Guacamole.jpg',
+        image: "{{ url_for('static', filename='images/Guacamole.jpg') }}",
         ingredients: ['Avocados', 'Lime', 'Tomato', 'Onion', 'Cilantro'],
         steps: ['Mash avocados', 'Mix in other ingredients', 'Season to taste'],
         prepTime: '10 mins',
@@ -202,7 +202,7 @@
       },
       {
         title: 'Chiles Rellenos',
-        image: './chile-rellenos.jpg',
+        image: "{{ url_for('static', filename='images/chile-rellenos.jpg') }}",
         ingredients: ['Poblano peppers', 'Cheese', 'Eggs', 'Tomato sauce', 'Flour'],
         steps: ['Roast and peel peppers', 'Stuff with cheese', 'Dip in egg batter and fry'],
         prepTime: '1 hr',
@@ -210,7 +210,7 @@
       },
       {
         title: 'Mexican Rice',
-        image: './Mexican Rice.jpg',
+        image: "{{ url_for('static', filename='images/Mexican Rice.jpg') }}",
         ingredients: ['Rice', 'Tomato paste', 'Garlic', 'Onion', 'Chicken broth'],
         steps: ['Sauté rice and vegetables', 'Add tomato paste and broth', 'Simmer until cooked'],
         prepTime: '30 mins',

@@ -156,7 +156,7 @@
 <body>
   <header>Explore Indian Cuisine</header>
   <div class="link-to-my-recipes">
-    <a href="my-recipes.html">Go to My Recipes</a>
+    <a href="{{ url_for('recipes') }}">Go to My Recipes</a>
   </div>
   <input type="text" id="searchBar" placeholder="Search for a recipe..." onkeyup="filterRecipes()">
   <div class="recipes" id="recipeContainer"></div>
@@ -179,7 +179,7 @@
     const recipes = [
       {
         title: 'Butter Chicken',
-        image: './butter-chicken-3.jpg',
+        image: "{{ url_for('static', filename='images/butter-chicken-3.jpg') }}",
         ingredients: ['Chicken', 'Butter', 'Tomatoes', 'Cream', 'Spices'],
         steps: ['Marinate chicken', 'Cook gravy with tomatoes and spices', 'Add butter and cream', 'Combine and simmer'],
         prepTime: '45 mins',
@@ -187,7 +187,7 @@
       },
       {
         title: 'Palak Paneer',
-        image: './palak-paneer.jpg',
+        image: "{{ url_for('static', filename='images/palak-paneer.jpg') }}",
         ingredients: ['Spinach', 'Paneer', 'Garlic', 'Onion', 'Spices'],
         steps: ['Blanch and blend spinach', 'Saute onion and spices', 'Add paneer and spinach puree'],
         prepTime: '35 mins',
@@ -195,7 +195,7 @@
       },
       {
         title: 'Hyderabadi Biryani',
-        image: './biriyani.jpg',
+        image: "{{ url_for('static', filename='images/biriyani.jpg') }}",
         ingredients: ['Rice', 'Chicken/Mutton', 'Yogurt', 'Spices', 'Onions'],
         steps: ['Marinate meat', 'Cook partially rice', 'Layer rice and meat', 'Cook on low heat'],
         prepTime: '1 hr',
@@ -203,7 +203,7 @@
       },
       {
         title: 'Chole Bhature',
-        image: './Chole Bhature.jpg',
+        image: "{{ url_for('static', filename='images/Chole Bhature.jpg') }}",
         ingredients: ['Chickpeas', 'Flour', 'Yogurt', 'Tomatoes', 'Spices'],
         steps: ['Soak and boil chickpeas', 'Prepare spicy tomato gravy', 'Knead dough and make bhature', 'Serve hot'],
         prepTime: '50 mins',
@@ -211,7 +211,7 @@
       },
       {
         title: 'Masala Dosa',
-        image: './Masala-Dosa.webp',
+        image: "{{ url_for('static', filename='images/Masala-Dosa.webp') }}",
         ingredients: ['Rice', 'Lentils', 'Potatoes', 'Mustard seeds', 'Curry leaves'],
         steps: ['Make dosa batter', 'Prepare potato filling', 'Cook dosa and stuff with filling'],
         prepTime: '40 mins',
@@ -219,7 +219,7 @@
       },
       {
         title: 'Rajma Chawal',
-        image: './Rajma Chawal.webp',
+        image: "{{ url_for('static', filename='images/Rajma Chawal.webp') }}",
         ingredients: ['Kidney beans', 'Rice', 'Tomatoes', 'Onions', 'Spices'],
         steps: ['Soak and cook rajma', 'Prepare tomato-onion gravy', 'Serve hot with rice'],
         prepTime: '45 mins',
@@ -227,7 +227,7 @@
       },
       {
         title: 'Aloo Paratha',
-        image: './Aloo Paratha.jpg',
+        image: "{{ url_for('static', filename='images/Aloo Paratha.jpg') }}",
         ingredients: ['Potatoes', 'Wheat flour', 'Spices', 'Butter', 'Green chilies'],
         steps: ['Boil and mash potatoes', 'Mix with spices', 'Stuff into dough and roll', 'Cook on tawa with butter'],
         prepTime: '30 mins',
@@ -235,7 +235,7 @@
       },
       {
         title: 'Paneer Tikka',
-        image: './Paneer-Tikka.webp',
+        image: "{{ url_for('static', filename='images/Paneer-Tikka.webp') }}",
         ingredients: ['Paneer', 'Yogurt', 'Spices', 'Capsicum', 'Onion'],
         steps: ['Marinate paneer and veggies', 'Skewer and grill or bake', 'Serve with chutney'],
         prepTime: '25 mins',
@@ -243,7 +243,7 @@
       },
       {
         title: 'Dhokla',
-        image: './Dhokla.webp',
+        image: "{{ url_for('static', filename='images/Dhokla.webp') }}",
         ingredients: ['Gram flour', 'Yogurt', 'Eno', 'Mustard seeds', 'Curry leaves'],
         steps: ['Make batter with gram flour and yogurt', 'Add eno and steam', 'Prepare tempering and pour over dhokla'],
         prepTime: '20 mins',
@@ -251,7 +251,7 @@
       },
       {
         title: 'Gulab Jamun',
-        image: './Gulab Jamun.jpeg',
+        image: "{{ url_for('static', filename='images/Gulab Jamun.jpeg') }}",
         ingredients: ['Khoya', 'Flour', 'Sugar', 'Cardamom', 'Rose water'],
         steps: ['Make dough with khoya and flour', 'Shape balls and fry', 'Dip in sugar syrup'],
         prepTime: '30 mins',
