@@ -17,11 +17,20 @@
         }
 
         body {
-            background: linear-gradient(to bottom, #a8e6cf, #dcedc1);
+            background: linear-gradient(to bottom, #f6f4f4, #f1f1f3);
             margin: auto;
             width: 100%;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
         }
 
+         a{
+            text-decoration: none;
+        }
 
         /* Hide sidebar trigger on desktop */
 .dots {
@@ -218,17 +227,17 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: rgb(187, 207, 244);
+            background-color: #e5befd;
             padding: 10px 20px;
             position: fixed;
             top: 0;
-            z-index: 1000;
+            right: 0;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 0 0 15px 15px;
         }
 
         nav .left {
-            color: brown;
+            color: rgb(255, 0, 0);
             font-size: 2rem;
             font-style: italic;
             font-weight: bold;
@@ -260,16 +269,19 @@
         .dropdown {
             position: relative;
             display: inline-block;
+            
         }
 
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #f1f1f1;
+            background-color: #fefefe;
             min-width: 160px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px 4px  rgba(225, 1, 1, 0.6);
             z-index: 1;
-            border-radius: 5px;
+            border-radius: 10px;
+            
+            
         }
 
         .dropdown-content a {
@@ -277,10 +289,12 @@
             padding: 10px 15px;
             text-decoration: none;
             display: block;
+            border-radius: 10px;
         }
 
         .dropdown-content a:hover {
-            background-color: #ddd;
+            background-color: #e6afaf;
+            border: 2px solid rgb(220, 121, 121)
         }
 
         .dropdown:hover .dropdown-content {
@@ -356,35 +370,47 @@
 
         /* Cuisines Section */
         .head {
-            background-color: aliceblue;
+            background-color: white;
             text-align: center;
             padding: 20px 0;
             font-size: 3rem;
             font-style: italic;
+            border: 4px solid rgba(240, 6, 220, 0.1);
+            border-bottom: none;
+            border-radius: 10px;
         }
 
         .alt {
             display: flex;
             justify-content: center;
             gap: 50px;
-            background-color: aliceblue;
+            background-color: white;
             padding: 20px 0;
+            padding-bottom: 80px;
+            padding-top: 50px;
+            border: 4px solid rgba(240, 6, 220, 0.1);
+            border-top: none;
+            border-radius: 10px;
+            
         }
-
+       
         .s {
             height: 300px;
             width: 250px;
-            background-color: rgba(239, 220, 198, 0.9);
+            background-color:white;
             border-radius: 15px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.2);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
+         
+        
         .s:hover {
             transform: scale(1.1);
             box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
             border: 2px solid rgb(225, 0, 255);
+            
         }
 
         .s img {
@@ -396,6 +422,7 @@
         .s .d {
             font-size: 1.5rem;
             margin-top: 10px;
+            
         }
 
         /* Meals Section */
@@ -405,28 +432,38 @@
             padding: 20px 0;
             font-size: 3rem;
             font-style: italic;
-            background-color: rgb(221, 245, 245);
+            background-color: white;
+            border: 4px solid rgba(240, 6, 220, 0.1);
+            border-bottom: none;
+            border-top: none;
+            border-radius: 10px;
         }
         .work {
             display: flex;
             justify-content: center;
             gap: 50px;
-            background-color: rgb(221, 245, 245);
+            background-color: white;
             padding: 40px 0;
+            margin-bottom: 50px;
+            border: 4px solid rgba(240, 6, 220, 0.1);
+            border-top: none;
+            border-radius: 10px;
+            
         }
 
         .r {
             height: 380px;
             width: 300px;
-            background-color: rgba(255, 220, 249, 0.9);
+            background-color: white;
             border-radius: 15px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.5);
             text-align: center;
             transition: transform 0.3s ease;
         }
 
         .r:hover {
             transform: scale(1.05);
+            border: 2px solid rgb(225, 0, 255);
         }
 
         .r img {
@@ -436,8 +473,8 @@
         }
 
         .r h1 {
-            font-size: 1.8rem;
-            margin: 10px 0;
+            font-size: 1.5rem;
+            margin-top: 10px;
         }
 
         /* Contact Section */
@@ -467,15 +504,19 @@
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 30px;
             margin-top: 20px;
+            background-color: #c997ea;
+            border-radius: 10px;
         }
 
         .social-icons a {
             text-decoration: none;
             color: black;
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             transition: color 0.3s ease, transform 0.3s ease;
+            padding-top: 20px;
+            padding-bottom: 10px;
         }
 
         .social-icons a:hover {
@@ -656,6 +697,212 @@ button:hover {
 }
 
 
+
+/* Search  */
+
+/* Base Styles */
+
+
+
+
+
+.container {
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(198, 4, 4, 0.5);
+   
+    
+}
+
+.sea {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+/* Search Section */
+.search-container {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+    border-color: #e74c3c;
+}
+
+#searchButton {
+    padding: 12px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: 300px;
+    margin-top: 10px;
+}
+
+#searchButton:hover {
+    background-color: #c0392b;
+}
+
+/* Filters Section */
+.filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.filters select {
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background: white;
+    font-size: 14px;
+    min-width: 180px;
+    cursor: pointer;
+}
+
+/* Results Section */
+.recipe-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.recipe-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.recipe-info {
+    padding: 20px;
+}
+
+.recipe-title {
+    margin: 0 0 15px;
+    color: #2c3e50;
+    font-size: 1.2rem;
+}
+
+.recipe-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+.recipe-category {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #e74c3c;
+    color: white;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.recipe-ingredients {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Status Messages */
+.loading, .error, .no-results {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    grid-column: 1 / -1;
+}
+
+.loading {
+    color: #7f8c8d;
+}
+
+.error {
+    color: #e74c3c;
+}
+
+.no-results {
+    color: #7f8c8d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .search-container {
+        flex-direction: column;
+    }
+    
+    #searchButton {
+        width: 100%;
+    }
+    
+    .recipe-results {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animation for loading */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: #e74c3c;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
     </style>
     <script src="https://kit.fontawesome.com/c88ac126d3.js" crossorigin="anonymous"></script>
 </head>
@@ -667,6 +914,76 @@ button:hover {
         const sidebar = document.getElementById("sidebar");
         sidebar.style.width = sidebar.style.width === "250px" ? "0" : "250px";
     }
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+    // Search functionality
+    document.getElementById('searchButton').addEventListener('click', searchRecipes);
+    document.getElementById('searchInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            searchRecipes();
+        }
+        if (this.value.trim() === '') {
+            document.getElementById('recipeResults').innerHTML = 
+            '<div class="empty-state">Try searching for recipes by name or ingredients</div>';
+         }
+    });
+
+    // Filter change events
+    
+});
+
+function searchRecipes() {
+    const searchTerm = document.getElementById('searchInput').value;
+    
+    
+    // Show loading state
+    const resultsContainer = document.getElementById('recipeResults');
+    resultsContainer.innerHTML = '<div class="loading">Searching recipes...</div>';
+    
+    // Make API request to Flask backend
+    fetch(`/search?q=${encodeURIComponent(searchTerm)}`)
+        .then(response => response.json())
+        .then(recipes => {
+            displayRecipes(recipes);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            resultsContainer.innerHTML = '<div class="error">Failed to load recipes. Please try again.</div>';
+        });
+}
+
+function displayRecipes(recipes) {
+    const resultsContainer = document.getElementById('recipeResults');
+    resultsContainer.innerHTML = '';
+    
+    if (recipes.length === 0) {
+        resultsContainer.innerHTML = '<div class="no-results">No recipes found matching your criteria.</div>';
+        return;
+    }
+    
+    recipes.forEach(recipe => {
+        const recipeCard = document.createElement('div');
+        recipeCard.className = 'recipe-card';
+        
+        recipeCard.innerHTML = `
+            <img src="${recipe.image}" alt="${recipe.title}" class="recipe-image">
+            <div class="recipe-info">
+                <h3 class="recipe-title">${recipe.title}</h3>
+                <div class="recipe-meta">
+                    <span>${recipe.prep_time} </span>
+                    <span class="recipe-category">${recipe.category}</span>
+                </div>
+                <p><strong>Ingredients:</strong> ${recipe.ingredients.join(', ')}</p>
+                <p><strong>Steps:</strong> ${recipe.steps.join(', ')}</p>
+                <p><strong>Calories:</strong> ${recipe.calories}</p>
+            </div>
+        `;
+        
+        resultsContainer.appendChild(recipeCard);
+    });
+}
+
 </script>    
     
 
@@ -712,17 +1029,23 @@ button:hover {
 </header>
 
     <section>
-        <div class="recipe">
-            <div class="rec">
-                <p class="f"><em><b>Find your Delicacy</b></em></p>
-                <form action="/search" method="get">
-                    <div class="f">
-                        <input class="search" type="text" placeholder="Search for recipe etc." name="search" aria-label="Search">
-                        <button type="submit"> <i class="fa-solid fa-magnifying-glass fa-bounce"></i></button>
-                    </div>
-                </form>
+        <div class="cont">
+            <div class="container">
+                <h1 class="sea">Find Recipe</h1>
+        
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search by dish, ingredient, or category...">
+                    <button id="searchButton">Find Recipes</button>
+                </div>
+        
+                
+        
+                <div id="recipeResults" class="recipe-results">
+                    <!-- Recipes will appear here via JavaScript -->
+                </div>
             </div>
         </div>
+        
     </section>
 
     <section>

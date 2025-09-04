@@ -156,7 +156,7 @@
 <body>
   <header>Explore Breakfast Recipes</header>
   <div class="link-to-my-recipes">
-    <a href="my-recipes.html">Go to My Recipes</a>
+    <a href="{{ url_for('recipes') }}">Go to My Recipes</a>
   </div>
   <input type="text" id="searchBar" placeholder="Search for a recipe..." onkeyup="filterRecipes()">
   <div class="recipes" id="recipeContainer"></div>

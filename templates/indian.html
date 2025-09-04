@@ -177,14 +177,7 @@
 
   <script>
     const recipes = [
-      {
-        title: 'Butter Chicken',
-        image: "{{ url_for('static', filename='images/butter-chicken-3.jpg') }}",
-        ingredients: ['Chicken', 'Butter', 'Tomatoes', 'Cream', 'Spices'],
-        steps: ['Marinate chicken', 'Cook gravy with tomatoes and spices', 'Add butter and cream', 'Combine and simmer'],
-        prepTime: '45 mins',
-        calories: '350 kcal'
-      },
+      
       {
         title: 'Palak Paneer',
         image: "{{ url_for('static', filename='images/palak-paneer.jpg') }}",
@@ -256,7 +249,15 @@
         steps: ['Make dough with khoya and flour', 'Shape balls and fry', 'Dip in sugar syrup'],
         prepTime: '30 mins',
         calories: '350 kcal'
-      }
+      },
+      {
+        title: 'Butter Chicken',
+        image: "{{ url_for('static', filename='images/butter-chicken-3.jpg') }}",
+        ingredients: ['Chicken', 'Butter', 'Tomatoes', 'Cream', 'Spices'],
+        steps: ['Marinate chicken', 'Cook gravy with tomatoes and spices', 'Add butter and cream', 'Combine and simmer'],
+        prepTime: '45 mins',
+        calories: '350 kcal'
+      },
     ];
 
     function renderRecipes(list = recipes) {
